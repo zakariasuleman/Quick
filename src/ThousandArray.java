@@ -24,10 +24,9 @@ public class ThousandArray {
         int[] array = new int[1000];
         for(int i = 0; i < array.length; i++){
             array[i]= (int)(Math.random()*1000);
-            System.out.println(array[i]);
         }
             Scanner input = new Scanner(System.in);
-            System.out.println("Enter an integer value between 0 and 1000");
+            System.out.println("\nEnter an integer value between 0 and 999");
             int target = input.nextInt();
             int occurs = 0;
             for(int i = 0; i<array.length; i++){
@@ -35,10 +34,15 @@ public class ThousandArray {
                     occurs++;
                 }
             }
-            if(occurs>0){
-                System.out.println("Value: "+target+" "+"does exist!");
-            }else{
-                System.out.println("Value: "+target+" "+"does not exist!");
+            if(occurs>0&&occurs!=1){
+                System.out.println("Value: "+target+" "+"appears "+occurs+" "+"times!");
+            }
+            else if(occurs==1){
+                System.out.println("Value: "+target+" "+"appears "+occurs+" "+"time!");
+            }
+            else{
+                System.out.println("Value: "+target+" "+"does not appear!");
+                generateRandomArray();
             }
     }
 }
